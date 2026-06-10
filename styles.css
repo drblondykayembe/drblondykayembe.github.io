@@ -128,7 +128,7 @@ body {
 }
 
 .hero-image {
-    order: -1;
+    order: -0.5;
     flex: 1;
 }
 
