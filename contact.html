@@ -28,7 +28,7 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h2>Let's Connect</h2>
-                <p>Whether you have a question, a project proposal, or just want to chat, feel free to reach out. I'm always excited to meet new people and explore new possibilities. Spread the good science and let's Make the World Healthier Again.</p>
+                <p>Whether you have a question, a project proposal, or just want to chat, feel free to reach out. I'm always excited to meet new people and explore new possibilities. Spread the good health!</p>
                 
                 <div class="contact-methods">
                     <div class="contact-method">
@@ -58,20 +58,21 @@
                 </div>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" placeholder="Subject">
+                    <input type="text" id="subject" placeholder="Subject">
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Your Message" rows="6" required></textarea>
+                    <textarea id="message" placeholder="Your Message" rows="6" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                <div id="formMessage" class="form-message"></div>
             </form>
         </div>
     </section>
@@ -79,16 +80,77 @@
     <footer>
         <p>&copy; 2026 Dr. Blondy Kayembe. All rights reserved.</p>
         <div class="footer-links">
-            <div class="footer-links">
-                        <p><a href="https://www.facebook.com/drblondykayembe" target="_blank">Facebook</a> | 
-                            <a href="https://www.instagram.com/@drblondykayembe" target="_blank">Instagram</a> | 
-                            <a href="https://www.threads.com/@drblondykayembe" target="_blank">Threads</a> | 
-                            <a href="https://www.tiktok.com/@drblondykayembe" target="_blank">TikTok</a> | 
-                            <a href="https://www.x.com/drblondykayembe" target="_blank">X (Twitter)</a> | 
-                            <a href="https://www.linkedin.com/in/drblondykayembe" target="_blank">LinkedIn</a> | 
-                            <a href="https://www.youtube.com/@drblondykayembe" target="_blank">YouTube</a> |
-                            <a href="contact.html">Contact</a></p>
+            <p><a href="https://www.facebook.com/drblondykayembe" target="_blank">Facebook</a> | 
+                <a href="https://www.instagram.com/@drblondykayembe" target="_blank">Instagram</a> | 
+                <a href="https://www.threads.com/@drblondykayembe" target="_blank">Threads</a> | 
+                <a href="https://www.tiktok.com/@drblondykayembe" target="_blank">TikTok</a> | 
+                <a href="https://www.x.com/drblondykayembe" target="_blank">X (Twitter)</a> | 
+                <a href="https://www.linkedin.com/in/drblondykayembe" target="_blank">LinkedIn</a> | 
+                <a href="https://www.youtube.com/@drblondykayembe" target="_blank">YouTube</a> |
+                <a href="contact.html">Contact</a></p>
         </div>
     </footer>
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Get existing messages from local storage
+            let allMessages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+
+            // Add new message to array
+            allMessages.push(formData);
+
+            // Save to local storage
+            localStorage.setItem('contactMessages', JSON.stringify(allMessages));
+
+            // Show success message
+            formMessage.textContent = '✓ Message saved successfully! Thank you for reaching out.';
+            formMessage.classList.add('success');
+            formMessage.classList.remove('error');
+
+            // Reset form
+            contactForm.reset();
+
+            // Clear message after 5 seconds
+            setTimeout(() => {
+                formMessage.textContent = '';
+                formMessage.classList.remove('success');
+            }, 5000);
+
+            // Log to console for verification
+            console.log('Message saved! Total messages:', allMessages.length);
+            console.log('Latest message:', formData);
+        });
+
+        // Retrieve all stored messages (for development/testing)
+        function viewAllMessages() {
+            const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+            console.table(messages);
+            return messages;
+        }
+
+        // Clear all messages (optional)
+        function clearAllMessages() {
+            localStorage.removeItem('contactMessages');
+            console.log('All messages cleared');
+        }
+
+        // Display tip in console
+        console.log('📝 Tip: Use viewAllMessages() to see all stored messages');
+        console.log('🗑️  Tip: Use clearAllMessages() to delete all messages');
+    </script>
 </body>
 </html>
