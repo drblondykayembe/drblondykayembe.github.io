@@ -103,7 +103,48 @@
         <div class="lightbox-info" id="lightbox-info"></div>
     </div>
 
-  
+  <!-- ===== PDF VIEWER MODAL ===== -->
+    <div id="pdf-viewer-modal" class="modal">
+        <div class="modal-content pdf-modal-content">
+            <span class="close">&times;</span>
+            <div class="pdf-viewer-header">
+                <h2 id="pdf-title">PDF Viewer</h2>
+                <div class="pdf-controls">
+                    <button id="pdf-prev-page" class="pdf-btn">❮ Previous</button>
+                    <div class="pdf-page-info">
+                        <input type="number" id="pdf-page-input" class="pdf-page-input" value="1" min="1">
+                        <span>of <span id="pdf-total-pages">0</span></span>
+                    </div>
+                    
+                    <button id="pdf-next-page" class="pdf-btn">Next ❯</button>
+                    <button id="pdf-zoom-in" class="pdf-btn">🔍+</button>
+                    <button id="pdf-zoom-out" class="pdf-btn">🔍-</button>
+                    <a id="pdf-download-btn" class="pdf-btn download-btn" download>⬇️ Download</a>
+                    <button id="pdf-print-btn" class="pdf-btn">🖨️ Print</button>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <canvas id="pdf-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VIDEO PLAYER MODAL ===== -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content video-modal-content">
+            <span class="close">&times;</span>
+            <video id="video-player" width="100%" height="600" controls>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="video-info">
+                <h2 id="video-title"></h2>
+                <a id="video-download-btn" class="btn btn-primary" download>⬇️ Download Video</a>
+            </div>
+        </div>
+
+    </div>
     <!-- ===== CONTENT DETAIL VIEW MODAL ===== -->
     <div id="content-detail-modal" class="modal">
         <div class="modal-content content-detail-modal-content">
