@@ -8,8 +8,8 @@ const contentData = {
                 id: 1,
                 title: 'Did You Know - Vitamin D',
                 type: 'pictures',
-                image: 'assets/images/did-you-know-1.jpg',
-                downloadUrl: 'assets/downloads/did-you-know-1.pdf'
+                image: 'assets/images/profile.1.gif',
+                downloadUrl: 'assets/downloads/profile.1.gif'
             },
             {
                 id: 2,
