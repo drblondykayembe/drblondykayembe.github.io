@@ -1,202 +1,907 @@
-// Content data structure - EASY TO UPDATE
+// PDF.js worker setup
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+// Content data structure
 const contentData = {
     'did-you-know': {
         title: 'Did You Know?',
-        description: 'Daily health questions to improve your knowledge',
+        description: 'A simple daily question that provides you with short, valuable information to improve your health knowledge.',
         items: [
             {
                 id: 1,
-                title: 'Did You Know - Vitamin D',
+                title: 'Did You Know - Vitamin D Benefits',
                 type: 'pictures',
-                image: 'assets/images/profile.1.gif',
-                downloadUrl: 'assets/downloads/profile.1.gif'
+                image: 'assets/images/did-you-know-1.jpg',
+                downloadUrl: 'assets/downloads/did-you-know-1.jpg',
+                date: '2024-01-15',
+                views: 245,
+                avgRating: 4.5
             },
             {
                 id: 2,
                 title: 'Did You Know - Sleep Benefits',
                 type: 'videos',
                 image: 'assets/images/did-you-know-2.jpg',
-                downloadUrl: 'assets/downloads/did-you-know-2.mp4'
+                downloadUrl: 'assets/downloads/did-you-know-2.mp4',
+                date: '2024-01-10',
+                views: 312,
+                avgRating: 4.8
             },
             {
                 id: 3,
                 title: 'Did You Know - Water Intake',
                 type: 'documents',
                 image: 'assets/images/did-you-know-3.jpg',
-                downloadUrl: 'assets/downloads/did-you-know-3.pdf'
+                downloadUrl: 'assets/downloads/did-you-know-3.pdf',
+                date: '2024-01-05',
+                views: 189,
+                avgRating: 4.2
             },
-            // Add more items as needed
+            {
+                id: 4,
+                title: 'Did You Know - Exercise and Heart Health',
+                type: 'pictures',
+                image: 'assets/images/did-you-know-4.jpg',
+                downloadUrl: 'assets/downloads/did-you-know-4.jpg',
+                date: '2024-01-01',
+                views: 156,
+                avgRating: 4.6
+            },
         ]
     },
     'health-challenge': {
         title: 'Tuesday Health Challenge!',
-        description: 'Weekly health riddles and challenges',
+        description: 'Answer a riddle question as a challenge to acquire new health knowledge or enhance the existing one.',
         items: [
             {
                 id: 1,
-                title: 'Challenge Week 1',
+                title: 'Challenge Week 1: Immune System Riddle',
                 type: 'articles',
                 image: 'assets/images/challenge-1.jpg',
-                downloadUrl: 'assets/downloads/challenge-1.pdf'
+                downloadUrl: 'assets/downloads/challenge-1.pdf',
+                date: '2024-01-14',
+                views: 267,
+                avgRating: 4.4
             },
             {
                 id: 2,
-                title: 'Challenge Week 2',
+                title: 'Challenge Week 2: Nutrition Mystery',
                 type: 'documents',
                 image: 'assets/images/challenge-2.jpg',
-                downloadUrl: 'assets/downloads/challenge-2.docx'
+                downloadUrl: 'assets/downloads/challenge-2.pdf',
+                date: '2024-01-07',
+                views: 198,
+                avgRating: 4.3
             },
-            // Add more items
         ]
     },
     '5-health-facts': {
         title: 'Wednesday 5-Health-Facts!',
-        description: '5 easy-to-remember health facts',
+        description: '5 easy-to-remember health facts to improve general public health knowledge.',
         items: [
             {
                 id: 1,
                 title: '5 Facts about Nutrition',
                 type: 'pictures',
                 image: 'assets/images/5facts-nutrition.jpg',
-                downloadUrl: 'assets/downloads/5facts-nutrition.pdf'
+                downloadUrl: 'assets/downloads/5facts-nutrition.pdf',
+                date: '2024-01-13',
+                views: 423,
+                avgRating: 4.9
             },
             {
                 id: 2,
                 title: '5 Facts about Exercise',
                 type: 'videos',
                 image: 'assets/images/5facts-exercise.jpg',
-                downloadUrl: 'assets/downloads/5facts-exercise.mp4'
+                downloadUrl: 'assets/downloads/5facts-exercise.mp4',
+                date: '2024-01-06',
+                views: 356,
+                avgRating: 4.7
             },
-            // Add more items
         ]
     },
     'true-or-false': {
         title: 'Thursday True or False?',
-        description: 'Dismantle health myths with evidence',
+        description: 'True or False questions that dismantle health myths and build evidence-based general health knowledge.',
         items: [
             {
                 id: 1,
-                title: 'Myth Busting #1',
+                title: 'Myth Busting #1: Carbs are Bad',
                 type: 'pictures',
                 image: 'assets/images/myth1.jpg',
-                downloadUrl: 'assets/downloads/myth1.pdf'
+                downloadUrl: 'assets/downloads/myth1.pdf',
+                date: '2024-01-12',
+                views: 234,
+                avgRating: 4.5
             },
-            // Add more items
+            {
+                id: 2,
+                title: 'Myth Busting #2: Sugar and Hyperactivity',
+                type: 'documents',
+                image: 'assets/images/myth2.jpg',
+                downloadUrl: 'assets/downloads/myth2.pdf',
+                date: '2024-01-05',
+                views: 178,
+                avgRating: 4.1
+            },
         ]
     },
     'health-storytelling': {
         title: 'Friday Health Storytelling!',
-        description: 'Real-life stories on global health',
+        description: 'Real-life stories to raise awareness on global health issues.',
         items: [
             {
                 id: 1,
-                title: 'Story 1: Fighting Malaria',
+                title: 'Story 1: Fighting Malaria in Africa',
                 type: 'videos',
                 image: 'assets/images/story1.jpg',
-                downloadUrl: 'assets/downloads/story1.mp4'
+                downloadUrl: 'assets/downloads/story1.mp4',
+                date: '2024-01-11',
+                views: 567,
+                avgRating: 4.9
             },
-            // Add more items
+            {
+                id: 2,
+                title: 'Story 2: Overcoming Diabetes',
+                type: 'articles',
+                image: 'assets/images/story2.jpg',
+                downloadUrl: 'assets/downloads/story2.pdf',
+                date: '2024-01-04',
+                views: 412,
+                avgRating: 4.8
+            },
         ]
     },
     'myth-fact': {
         title: 'Weekend Health Myth-Fact!',
-        description: 'Identify and dismantle health myths',
+        description: 'Identify and dismantle widespread health myths by providing evidence-based facts.',
         items: [
             {
                 id: 1,
                 title: 'Myth-Fact: Detox Drinks',
                 type: 'documents',
                 image: 'assets/images/mythfact1.jpg',
-                downloadUrl: 'assets/downloads/mythfact1.pdf'
+                downloadUrl: 'assets/downloads/mythfact1.pdf',
+                date: '2024-01-09',
+                views: 289,
+                avgRating: 4.3
             },
-            // Add more items
+            {
+                id: 2,
+                title: 'Myth-Fact: Fasting and Weight Loss',
+                type: 'pictures',
+                image: 'assets/images/mythfact2.jpg',
+                downloadUrl: 'assets/downloads/mythfact2.jpg',
+                date: '2024-01-02',
+                views: 445,
+                avgRating: 4.6
+            },
         ]
     },
     'breaking-news': {
         title: 'Health Breaking News!',
-        description: 'Latest health news and events',
+        description: 'Share health information on hot topics and events around the globe.',
         items: [
             {
                 id: 1,
                 title: 'News: New Vaccine Development',
                 type: 'articles',
                 image: 'assets/images/news1.jpg',
-                downloadUrl: 'assets/downloads/news1.pdf'
+                downloadUrl: 'assets/downloads/news1.pdf',
+                date: '2024-01-16',
+                views: 678,
+                avgRating: 4.7
             },
-            // Add more items
+            {
+                id: 2,
+                title: 'News: WHO Updates on Climate Health',
+                type: 'documents',
+                image: 'assets/images/news2.jpg',
+                downloadUrl: 'assets/downloads/news2.pdf',
+                date: '2024-01-08',
+                views: 523,
+                avgRating: 4.5
+            },
         ]
     }
 };
 
-// Get URL parameter
+// State Management
+const state = {
+    currentCategory: 'did-you-know',
+    currentContentId: null,
+    allItems: [],
+    filteredItems: [],
+    filterType: 'all',
+    searchQuery: '',
+    sortBy: 'newest',
+    showOnlyFavorites: false,
+    favorites: JSON.parse(localStorage.getItem('contentFavorites')) || [],
+    ratings: JSON.parse(localStorage.getItem('contentRatings')) || {},
+    comments: JSON.parse(localStorage.getItem('contentComments')) || {},
+    darkMode: localStorage.getItem('darkMode') === 'true',
+    currentImageIndex: 0,
+    currentPdfUrl: '',
+    pdfDoc: null,
+    pdfPageNum: 1,
+    pdfScale: 1.5,
+};
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    initializeDarkMode();
+    loadContent();
+    initializeEventListeners();
+    updateFavoritesCount();
+});
+
+// ===== DARK MODE =====
+function initializeDarkMode() {
+    const toggle = document.getElementById('dark-mode-toggle');
+    
+    if (state.darkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+    }
+
+    toggle.addEventListener('click', toggleDarkMode);
+}
+
+function toggleDarkMode() {
+    state.darkMode = !state.darkMode;
+    localStorage.setItem('darkMode', state.darkMode);
+    
+    if (state.darkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('dark-mode-toggle').textContent = '☀️';
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+        document.getElementById('dark-mode-toggle').textContent = '🌙';
+    }
+
+    // Track dark mode usage
+    trackEvent('Dark Mode', state.darkMode ? 'Enabled' : 'Disabled');
+}
+
+// ===== EVENT LISTENERS =====
+function initializeEventListeners() {
+    // Search
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        state.searchQuery = e.target.value.toLowerCase();
+        applyAllFilters();
+    });
+
+    // Sort
+    document.getElementById('sort-select').addEventListener('change', function(e) {
+        state.sortBy = e.target.value;
+        applyAllFilters();
+    });
+
+    // Favorites
+    document.getElementById('favorites-toggle').addEventListener('click', function() {
+        state.showOnlyFavorites = !state.showOnlyFavorites;
+        this.classList.toggle('active');
+        applyAllFilters();
+    });
+
+    // Filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            state.filterType = this.dataset.filter;
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            applyAllFilters();
+        });
+    });
+
+    // Modals
+    setupModalListeners();
+}
+
+// ===== LOAD AND FILTER CONTENT =====
+function loadContent() {
+    const category = getUrlParameter('category') || 'did-you-know';
+    state.currentCategory = category;
+    const data = contentData[category];
+
+    if (!data) {
+        document.getElementById('content-grid').innerHTML = 
+            '<div style="grid-column: 1/-1; text-align: center; padding: 3rem;"><p>❌ Category not found</p></div>';
+        return;
+    }
+
+    document.getElementById('page-title').textContent = data.title;
+    document.getElementById('page-description').textContent = data.description;
+    
+    state.allItems = data.items;
+    applyAllFilters();
+    
+    // Track page view
+    trackPageView(category);
+}
+
+function applyAllFilters() {
+    let filtered = [...state.allItems];
+
+    if (state.filterType !== 'all') {
+        filtered = filtered.filter(item => item.type === state.filterType);
+    }
+
+    if (state.searchQuery) {
+        filtered = filtered.filter(item => 
+            item.title.toLowerCase().includes(state.searchQuery)
+        );
+    }
+
+    if (state.showOnlyFavorites) {
+        filtered = filtered.filter(item => state.favorites.includes(item.id));
+    }
+
+    filtered = sortItems(filtered);
+    state.filteredItems = filtered;
+    displayContent(filtered);
+    updateSearchCount();
+}
+
+function sortItems(items) {
+    const sorted = [...items];
+    
+    switch(state.sortBy) {
+        case 'oldest':
+            return sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+        case 'a-z':
+            return sorted.sort((a, b) => a.title.localeCompare(b.title));
+        case 'z-a':
+            return sorted.sort((a, b) => b.title.localeCompare(a.title));
+        case 'popular':
+            return sorted.sort((a, b) => b.views - a.views);
+        case 'top-rated':
+            return sorted.sort((a, b) => b.avgRating - a.avgRating);
+        case 'newest':
+        default:
+            return sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+}
+
+// ===== DISPLAY CONTENT =====
+function displayContent(items) {
+    const grid = document.getElementById('content-grid');
+    const noResults = document.getElementById('no-results-message');
+
+    if (items.length === 0) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+    }
+
+    noResults.style.display = 'none';
+    grid.innerHTML = '';
+
+    items.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = `content-card ${item.type}`;
+        card.style.animationDelay = `${index * 0.05}s`;
+
+        const isFavorite = state.favorites.includes(item.id);
+        const userRating = state.ratings[item.id] || 0;
+        
+        card.innerHTML = `
+            <div class="content-card-image">
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                <span class="content-type-badge">${item.type}</span>
+                <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-id="${item.id}">
+                    ${isFavorite ? '★' : '☆'}
+                </button>
+            </div>
+            <div class="content-card-info">
+                <h3>${item.title}</h3>
+                <div class="card-stats">
+                    <span class="stat">👁️ ${item.views}</span>
+                    <span class="stat">⭐ ${item.avgRating.toFixed(1)}</span>
+                </div>
+                <div class="card-actions">
+                    <button class="view-btn" data-id="${item.id}">
+                        👁️ View Details
+                    </button>
+                    <a href="${item.downloadUrl}" class="download-btn" download>
+                        ⬇️
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+
+        const favoriteBtn = card.querySelector('.favorite-btn');
+        const viewBtn = card.querySelector('.view-btn');
+
+        favoriteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFavorite(item.id, favoriteBtn);
+        });
+
+        viewBtn.addEventListener('click', () => {
+            openContentDetail(item);
+            trackEvent('Content', 'View Details', item.title);
+        });
+    });
+}
+
+// ===== CONTENT DETAIL VIEW =====
+function openContentDetail(item) {
+    state.currentContentId = item.id;
+    
+    const modal = document.getElementById('content-detail-modal');
+    document.getElementById('detail-title').textContent = item.title;
+    document.getElementById('detail-date').textContent = formatDate(item.date);
+    document.getElementById('detail-type').textContent = item.type.toUpperCase();
+    document.getElementById('detail-download').href = item.downloadUrl;
+    document.getElementById('detail-print').onclick = () => printContent(item);
+
+    // Load ratings
+    loadRatings(item.id, item.avgRating);
+    
+    // Load comments
+    loadComments(item.id);
+
+    // Update detail modal styles
+    modal.classList.add('active');
+    modal.style.display = 'block';
+
+    // Track content view
+    trackEvent('Content', 'Viewed', item.title);
+}
+
+// ===== RATINGS =====
+function loadRatings(contentId, avgRating) {
+    const userRating = state.ratings[contentId] || 0;
+    const starsContainer = document.getElementById('rating-stars');
+    const ratingText = document.getElementById('rating-text');
+
+    // Clear previous
+    starsContainer.innerHTML = '';
+
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('span');
+        star.className = `star ${i <= userRating ? 'active' : ''} ${i <= avgRating ? 'filled' : ''}`;
+        star.textContent = '★';
+        star.dataset.value = i;
+
+        star.addEventListener('click', () => {
+            setRating(contentId, i);
+        });
+
+        starsContainer.appendChild(star);
+    }
+
+    ratingText.textContent = `(${avgRating.toFixed(1)} / 5.0)`;
+}
+
+function setRating(contentId, rating) {
+    state.ratings[contentId] = rating;
+    localStorage.setItem('contentRatings', JSON.stringify(state.ratings));
+    
+    const stars = document.querySelectorAll('#rating-stars .star');
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+
+    trackEvent('Rating', 'Given', `${rating} stars`);
+}
+
+// ===== COMMENTS =====
+function loadComments(contentId) {
+    const commentsList = document.getElementById('comments-list');
+    const commentCount = document.getElementById('comment-count');
+    
+    commentsList.innerHTML = '';
+    
+    const comments = state.comments[contentId] || [];
+    commentCount.textContent = comments.length;
+
+    if (comments.length === 0) {
+        commentsList.innerHTML = '<p class="no-comments">No comments yet. Be the first to comment!</p>';
+        return;
+    }
+
+    comments.forEach(comment => {
+        const commentEl = document.createElement('div');
+        commentEl.className = 'comment';
+        commentEl.innerHTML = `
+            <div class="comment-header">
+                <strong>${comment.name}</strong>
+                <span class="comment-date">${formatDate(comment.date)}</span>
+            </div>
+            <p class="comment-text">${escapeHtml(comment.text)}</p>
+        `;
+        commentsList.appendChild(commentEl);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const submitBtn = document.getElementById('submit-comment');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', submitComment);
+    }
+});
+
+function submitComment() {
+    const input = document.getElementById('comment-input');
+    const text = input.value.trim();
+
+    if (!text) {
+        alert('Please enter a comment');
+        return;
+    }
+
+    if (!state.currentContentId) return;
+
+    if (!state.comments[state.currentContentId]) {
+        state.comments[state.currentContentId] = [];
+    }
+
+    const comment = {
+        name: 'Anonymous User',
+        text: text,
+        date: new Date().toISOString()
+    };
+
+    state.comments[state.currentContentId].push(comment);
+    localStorage.setItem('contentComments', JSON.stringify(state.comments));
+
+    input.value = '';
+    loadComments(state.currentContentId);
+
+    trackEvent('Comment', 'Posted', 'New comment added');
+}
+
+// ===== SHARING =====
+function setupShareButtons(item) {
+    const shareUrl = window.location.href;
+    const shareText = `Check out this content: ${item.title}`;
+
+    document.querySelector('.facebook-share').onclick = () => {
+        const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        window.open(url, '_blank', 'width=600,height=400');
+        trackEvent('Share', 'Facebook', item.title);
+    };
+
+    document.querySelector('.twitter-share').onclick = () => {
+        const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+        window.open(url, '_blank', 'width=600,height=400');
+        trackEvent('Share', 'Twitter', item.title);
+    };
+
+    document.querySelector('.whatsapp-share').onclick = () => {
+        const url = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+        window.open(url, '_blank');
+        trackEvent('Share', 'WhatsApp', item.title);
+    };
+
+    document.querySelector('.linkedin-share').onclick = () => {
+        const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+        window.open(url, '_blank', 'width=600,height=400');
+        trackEvent('Share', 'LinkedIn', item.title);
+    };
+
+    document.querySelector('.email-share').onclick = () => {
+        const mailtoUrl = `mailto:?subject=${encodeURIComponent(item.title)}&body=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
+        window.location.href = mailtoUrl;
+        trackEvent('Share', 'Email', item.title);
+    };
+
+    document.querySelector('.copy-link').onclick = () => {
+        copyToClipboard(shareUrl);
+        trackEvent('Share', 'Link Copied', item.title);
+    };
+}
+
+// ===== PRINT FUNCTIONALITY =====
+function printContent(item) {
+    const modal = document.getElementById('print-modal');
+    const printTitle = document.getElementById('print-title');
+    const printPreview = document.getElementById('print-preview');
+
+    printTitle.textContent = item.title;
+    
+    printPreview.innerHTML = `
+        <div class="print-content">
+            <h1>${item.title}</h1>
+            <p class="print-meta">
+                <strong>Type:</strong> ${item.type} | 
+                <strong>Date:</strong> ${formatDate(item.date)} |
+                <strong>Views:</strong> ${item.views}
+            </p>
+            <img src="${item.image}" alt="${item.title}" style="max-width: 100%; height: auto;">
+            <footer class="print-footer">
+                <p>Dr. Blondy Kayembe - Health Information Platform</p>
+                <p>© 2026 All rights reserved.</p>
+            </footer>
+        </div>
+    `;
+
+    modal.style.display = 'block';
+
+    document.getElementById('print-document').onclick = () => {
+        window.print();
+        trackEvent('Action', 'Print', item.title);
+    };
+}
+
+// ===== FAVORITES =====
+function toggleFavorite(itemId, btn) {
+    if (state.favorites.includes(itemId)) {
+        state.favorites = state.favorites.filter(id => id !== itemId);
+        btn.textContent = '☆';
+        btn.classList.remove('active');
+        trackEvent('Favorite', 'Removed');
+    } else {
+        state.favorites.push(itemId);
+        btn.textContent = '★';
+        btn.classList.add('active');
+        trackEvent('Favorite', 'Added');
+    }
+
+    localStorage.setItem('contentFavorites', JSON.stringify(state.favorites));
+    updateFavoritesCount();
+}
+
+function updateFavoritesCount() {
+    document.getElementById('favorites-count').textContent = `(${state.favorites.length})`;
+}
+
+// ===== SEARCH =====
+function updateSearchCount() {
+    const count = state.filteredItems.length;
+    const countElement = document.getElementById('search-count');
+    if (state.searchQuery) {
+        countElement.textContent = `${count} result${count !== 1 ? 's' : ''}`;
+    } else {
+        countElement.textContent = '';
+    }
+}
+
+// ===== LIGHTBOX =====
+function openImageLightbox(item) {
+    const pictureItems = state.filteredItems.filter(i => i.type === 'pictures');
+    state.currentImageIndex = pictureItems.findIndex(i => i.id === item.id);
+    
+    const lightboxModal = document.getElementById('image-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxInfo = document.getElementById('lightbox-info');
+
+    lightboxImage.src = item.image;
+    lightboxInfo.innerHTML = `
+        <h3>${item.title}</h3>
+        <p>Image ${state.currentImageIndex + 1} of ${pictureItems.length}</p>
+        <a href="${item.downloadUrl}" class="btn btn-primary" download>⬇️ Download</a>
+    `;
+
+    lightboxModal.style.display = 'block';
+}
+
+function showPreviousImage() {
+    const pictureItems = state.filteredItems.filter(i => i.type === 'pictures');
+    state.currentImageIndex = (state.currentImageIndex - 1 + pictureItems.length) % pictureItems.length;
+    openImageLightbox(pictureItems[state.currentImageIndex]);
+}
+
+function showNextImage() {
+    const pictureItems = state.filteredItems.filter(i => i.type === 'pictures');
+    state.currentImageIndex = (state.currentImageIndex + 1) % pictureItems.length;
+    openImageLightbox(pictureItems[state.currentImageIndex]);
+}
+
+// ===== PDF VIEWER =====
+function openPdfViewer(item) {
+    state.currentPdfUrl = item.downloadUrl;
+    state.pdfPageNum = 1;
+    state.pdfScale = 1.5;
+
+    const pdfModal = document.getElementById('pdf-viewer-modal');
+    const pdfTitle = document.getElementById('pdf-title');
+    const pdfDownloadBtn = document.getElementById('pdf-download-btn');
+
+    pdfTitle.textContent = item.title;
+    pdfDownloadBtn.href = item.downloadUrl;
+
+    pdfModal.style.display = 'block';
+    loadPdf(item.downloadUrl);
+
+    trackEvent('Viewer', 'PDF Opened', item.title);
+}
+
+async function loadPdf(url) {
+    try {
+        state.pdfDoc = await pdfjsLib.getDocument(url).promise;
+        document.getElementById('pdf-total-pages').textContent = state.pdfDoc.numPages;
+        document.getElementById('pdf-page-input').max = state.pdfDoc.numPages;
+        renderPdfPage(state.pdfPageNum);
+    } catch (error) {
+        console.error('Error loading PDF:', error);
+        alert('Error loading PDF file');
+    }
+}
+
+async function renderPdfPage(pageNum) {
+    if (!state.pdfDoc) return;
+
+    try {
+        const page = await state.pdfDoc.getPage(pageNum);
+        const viewport = page.getViewport({ scale: state.pdfScale });
+        const canvas = document.getElementById('pdf-canvas');
+        const context = canvas.getContext('2d');
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        await page.render({
+            canvasContext: context,
+            viewport: viewport
+        }).promise;
+
+        document.getElementById('pdf-page-input').value = pageNum;
+        state.pdfPageNum = pageNum;
+
+    } catch (error) {
+        console.error('Error rendering page:', error);
+    }
+}
+
+function previousPage() {
+    if (state.pdfPageNum > 1) {
+        renderPdfPage(state.pdfPageNum - 1);
+    }
+}
+
+function nextPage() {
+    if (state.pdfDoc && state.pdfPageNum < state.pdfDoc.numPages) {
+        renderPdfPage(state.pdfPageNum + 1);
+    }
+}
+
+function goToPage() {
+    const pageNum = parseInt(document.getElementById('pdf-page-input').value) || 1;
+    if (state.pdfDoc && pageNum > 0 && pageNum <= state.pdfDoc.numPages) {
+        renderPdfPage(pageNum);
+    }
+}
+
+function zoomPdf(direction) {
+    if (direction === 'in') {
+        state.pdfScale = Math.min(state.pdfScale + 0.5, 4);
+    } else {
+        state.pdfScale = Math.max(state.pdfScale - 0.5, 0.5);
+    }
+    renderPdfPage(state.pdfPageNum);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('pdf-zoom-in').addEventListener('click', () => zoomPdf('in'));
+    document.getElementById('pdf-zoom-out').addEventListener('click', () => zoomPdf('out'));
+    document.getElementById('pdf-print-btn').addEventListener('click', () => {
+        window.print();
+        trackEvent('Action', 'PDF Print');
+    });
+});
+
+// ===== VIDEO PLAYER =====
+function openVideoPlayer(item) {
+    const videoModal = document.getElementById('video-modal');
+    const videoPlayer = document.getElementById('video-player');
+    const videoTitle = document.getElementById('video-title');
+    const videoDownloadBtn = document.getElementById('video-download-btn');
+
+    videoPlayer.src = item.downloadUrl;
+    videoTitle.textContent = item.title;
+    videoDownloadBtn.href = item.downloadUrl;
+
+    videoModal.style.display = 'block';
+
+    trackEvent('Viewer', 'Video Played', item.title);
+}
+
+// ===== MODAL SETUP =====
+function setupModalListeners() {
+    const modals = document.querySelectorAll('.modal');
+    const closes = document.querySelectorAll('.close');
+
+    closes.forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+            if (state.pdfDoc) {
+                state.pdfDoc.destroy();
+                state.pdfDoc = null;
+            }
+            document.getElementById('video-player').pause();
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                if (state.pdfDoc) {
+                    state.pdfDoc.destroy();
+                    state.pdfDoc = null;
+                }
+            }
+        });
+    });
+
+    // PDF Controls
+    document.getElementById('pdf-prev-page').addEventListener('click', previousPage);
+    document.getElementById('pdf-next-page').addEventListener('click', nextPage);
+    document.getElementById('pdf-page-input').addEventListener('change', goToPage);
+
+    // Lightbox
+    const lightboxModal = document.getElementById('image-lightbox');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            lightboxModal.style.display = 'none';
+        });
+    }
+
+    if (lightboxPrev) lightboxPrev.addEventListener('click', showPreviousImage);
+    if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+}
+
+// ===== UTILITIES =====
 function getUrlParameter(name) {
     const url = new URL(window.location);
     return url.searchParams.get(name);
 }
 
-// Load content based on category
-function loadContent() {
-    const category = getUrlParameter('category') || 'did-you-know';
-    const data = contentData[category];
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
 
-    if (!data) {
-        document.getElementById('content-grid').innerHTML = '<p>Category not found</p>';
-        return;
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+    });
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    const lightboxModal = document.getElementById('image-lightbox');
+    const pdfModal = document.getElementById('pdf-viewer-modal');
+
+    if (lightboxModal.style.display === 'block') {
+        if (e.key === 'ArrowLeft') showPreviousImage();
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'Escape') lightboxModal.style.display = 'none';
     }
 
-    // Update page title and description
-    document.getElementById('page-title').textContent = data.title;
-    document.getElementById('page-description').textContent = data.description;
-
-    // Display content
-    displayContent(data.items);
-}
-
-// Display content items
-function displayContent(items, filterType = 'all') {
-    const grid = document.getElementById('content-grid');
-    grid.innerHTML = '';
-
-    const filtered = filterType === 'all' 
-        ? items 
-        : items.filter(item => item.type === filterType);
-
-    filtered.forEach(item => {
-        const card = document.createElement('div');
-        card.className = `content-card ${item.type}`;
-        card.innerHTML = `
-            <div class="content-card-image">
-                <img src="${item.image}" alt="${item.title}">
-                <span class="content-type-badge">${item.type}</span>
-            </div>
-            <div class="content-card-info">
-                <h3>${item.title}</h3>
-                <a href="${item.downloadUrl}" class="download-btn" download>
-                    ⬇️ Download
-                </a>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
-}
-
-// Filter functionality
-document.addEventListener('DOMContentLoaded', function() {
-    loadContent();
-
-    // Filter button listeners
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = getUrlParameter('category') || 'did-you-know';
-            const filterType = this.dataset.filter;
-            
-            // Update active button
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            // Display filtered content
-            displayContent(contentData[category].items, filterType);
-        });
-    });
+    if (pdfModal.style.display === 'block') {
+        if (e.key === 'ArrowLeft') previousPage();
+        if (e.key === 'ArrowRight') nextPage();
+        if (e.key === 'Escape') pdfModal.style.display = 'none';
+    }
 });
