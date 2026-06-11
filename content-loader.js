@@ -11,8 +11,8 @@ const contentData = {
                 id: 1,
                 title: 'Did You Know - Vitamin D Benefits',
                 type: 'pictures',
-                image: 'assets/images/did-you-know-1.jpg',
-                downloadUrl: 'assets/downloads/did-you-know-1.jpg',
+                image: 'assets/images/profile.1.gif',
+                downloadUrl: 'assets/downloads/profile.1.gif',
                 date: '2024-01-15',
                 views: 245,
                 avgRating: 4.5
