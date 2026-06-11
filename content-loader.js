@@ -13,7 +13,9 @@ const contentData = {
                 type: 'pictures',
                 image: 'assets/images/profile.1.gif',
                 downloadUrl: 'assets/downloads/profile.1.gif',
-                date: '2024-01-15'
+                date: '2024-01-15',
+                views: 241,
+                avgRating: 4.9
             },
             {
                 id: 2,
