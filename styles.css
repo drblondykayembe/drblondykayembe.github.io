@@ -855,7 +855,7 @@ html[data-theme="dark"] select:focus {
 
 /* ===== CONTENT DETAIL MODAL ===== */
 .content-detail-modal-content {
-    max-width: 200px;
+    max-width: 900px;
     max-height: 90vh;
     overflow-y: auto;
 }
